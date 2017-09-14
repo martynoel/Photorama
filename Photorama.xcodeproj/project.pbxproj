@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		394F8F741F6B2D340052728C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F8F731F6B2D340052728C /* AppDelegate.swift */; };
-		394F8F761F6B2D340052728C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F8F751F6B2D340052728C /* ViewController.swift */; };
 		394F8F791F6B2D340052728C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394F8F771F6B2D340052728C /* Main.storyboard */; };
 		394F8F7B1F6B2D340052728C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 394F8F7A1F6B2D340052728C /* Assets.xcassets */; };
 		394F8F7E1F6B2D340052728C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394F8F7C1F6B2D340052728C /* LaunchScreen.storyboard */; };
 		394F8F891F6B2D340052728C /* PhotoramaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F8F881F6B2D340052728C /* PhotoramaTests.swift */; };
 		394F8F941F6B2D340052728C /* PhotoramaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F8F931F6B2D340052728C /* PhotoramaUITests.swift */; };
+		394F8FA21F6B2EB50052728C /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F8FA11F6B2EB50052728C /* PhotosViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 /* Begin PBXFileReference section */
 		394F8F701F6B2D340052728C /* Photorama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photorama.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		394F8F731F6B2D340052728C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		394F8F751F6B2D340052728C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		394F8F781F6B2D340052728C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		394F8F7A1F6B2D340052728C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		394F8F7D1F6B2D340052728C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		394F8F8F1F6B2D340052728C /* PhotoramaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoramaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		394F8F931F6B2D340052728C /* PhotoramaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoramaUITests.swift; sourceTree = "<group>"; };
 		394F8F951F6B2D340052728C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		394F8FA11F6B2EB50052728C /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				394F8F731F6B2D340052728C /* AppDelegate.swift */,
-				394F8F751F6B2D340052728C /* ViewController.swift */,
+				394F8FA11F6B2EB50052728C /* PhotosViewController.swift */,
 				394F8F771F6B2D340052728C /* Main.storyboard */,
 				394F8F7A1F6B2D340052728C /* Assets.xcassets */,
 				394F8F7C1F6B2D340052728C /* LaunchScreen.storyboard */,
@@ -259,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				394F8F761F6B2D340052728C /* ViewController.swift in Sources */,
+				394F8FA21F6B2EB50052728C /* PhotosViewController.swift in Sources */,
 				394F8F741F6B2D340052728C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
