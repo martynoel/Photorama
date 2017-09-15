@@ -53,4 +53,18 @@ struct FlickrAPI {
         
         return components.url!
     }
+    
+    // Unpacks & converts JSON data to model objects
+    static func photos(fromJSON data: Data) -> PhotosResult {
+        do {
+            // If valid JSON, jsonObject references model object
+            let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
+            var finalPhotos = [Photo]()
+            
+            return .success(finalPhotos)
+        } catch let error {
+            // If not valid JSON, pass along error
+            return .failure(error)
+        }
+    }
 }

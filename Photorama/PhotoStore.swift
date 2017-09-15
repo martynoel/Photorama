@@ -8,6 +8,14 @@
 
 import Foundation
 
+/// PhotosResult represents state of JSON data from server
+/// Success: Photo array, Failure: Error
+
+enum PhotosResult {
+    case success([Photo])
+    case failure(Error)
+}
+
 /// PhotoStore handles actual web service calls.
 /// Fetches list of Flickr's "interesting photos" & downloads their respective data
 
