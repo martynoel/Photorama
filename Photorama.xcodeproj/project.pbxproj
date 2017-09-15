@@ -100,8 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				394F8F731F6B2D340052728C /* AppDelegate.swift */,
-				394F8FA11F6B2EB50052728C /* PhotosViewController.swift */,
 				394F8F771F6B2D340052728C /* Main.storyboard */,
+				394F8FA11F6B2EB50052728C /* PhotosViewController.swift */,
 				394F8FA31F6B36F20052728C /* FlickrAPI.swift */,
 				394F8F7A1F6B2D340052728C /* Assets.xcassets */,
 				394F8F7C1F6B2D340052728C /* LaunchScreen.storyboard */,

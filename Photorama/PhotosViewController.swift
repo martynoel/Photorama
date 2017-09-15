@@ -13,3 +13,6 @@ class PhotosViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
     
 }
+
+/// https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=fdsofuidsjfsdjflksdjfa&extras=url_h,date_taken
+/// &format=json&nojsoncallback=1
