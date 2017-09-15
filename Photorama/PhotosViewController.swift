@@ -8,11 +8,17 @@
 
 import UIKit
 
+/// Displays interesting Flickr photos in view
+
 class PhotosViewController: UIViewController {
     
     @IBOutlet var imageView: UIImageView!
+    var store: PhotoStore!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Requests photos from server using photo store
+        store.fetchInterestingPhotos()
+    }
 }
-
-/// https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=fdsofuidsjfsdjflksdjfa&extras=url_h,date_taken
-/// &format=json&nojsoncallback=1
