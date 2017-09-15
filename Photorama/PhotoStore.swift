@@ -28,7 +28,7 @@ class PhotoStore {
     }()
     
     // Gets interesting photos from server
-    func fetchInterestingPhotos() {
+    func fetchInterestingPhotos(completion: @escaping (PhotosResult) -> Void) {
         
         // Create URL instance using static function on FlickrAPI struct
         let url = FlickrAPI.interestingPhotosURL
@@ -39,20 +39,21 @@ class PhotoStore {
         // Transfer request to server
         let task = session.dataTask(with: request) {
             (data, response, error) -> Void in
+            // Uses its own processPhotosRequest(data: error:) to parse data
+            let result = self.processPhotosRequest(data: data, error: error)
             
-            if let jsonData = data {
-                do {
-                    let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: [])
-                    print(jsonObject)
-                } catch let error {
-                    print("Error creating JSON object: \(error)")
-                }
-            } else if let requestError = error {
-                print("Error fetching interesting photos: \(requestError)")
-            } else {
-                print("Unexpected error with the request")
-            }
+            completion(result)
         }
         task.resume()
+    }
+    
+    // Helper function for fetchInterestingPhotos()
+    // Uses photos(fromJSON:) to process photos
+    private func processPhotosRequest(data: Data?, error: Error?) -> PhotosResult {
+        guard let jsonData = data else {
+            return .failure(error!)
+        }
+        
+        return FlickrAPI.photos(fromJSON: jsonData)
     }
 }
