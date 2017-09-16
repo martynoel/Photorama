@@ -86,7 +86,6 @@ struct FlickrAPI {
             }
                     
             var finalPhotos = [Photo]()
-            
             for photoJSON in photosArray {
                 if let photo = photo(fromJSON: photoJSON) {
                     finalPhotos.append(photo)
@@ -97,7 +96,6 @@ struct FlickrAPI {
             if finalPhotos.isEmpty && !photosArray.isEmpty {
                 return .failure(FlickrError.invalidJSONData)
             }
-            
             return .success(finalPhotos)
         } catch let error {
             // If not valid JSON, pass along error

@@ -53,7 +53,6 @@ class PhotoStore {
         guard let jsonData = data else {
             return .failure(error!)
         }
-        
         return FlickrAPI.photos(fromJSON: jsonData)
     }
 }
