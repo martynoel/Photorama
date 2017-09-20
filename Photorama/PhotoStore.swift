@@ -54,8 +54,10 @@ class PhotoStore {
             (data, response, error) -> Void in
             // Uses its own processPhotosRequest(data: error:) to parse data
             let result = self.processPhotosRequest(data: data, error: error)
-            
-            completion(result)
+            // Executes completion handler on main thread (default on background thread)
+            OperationQueue.main.addOperation {
+                completion(result)
+            }
         }
         task.resume()
     }
@@ -78,8 +80,10 @@ class PhotoStore {
             (data, response, error) -> Void in
             
             let result = self.processImageRequest(data: data, error: error)
-            
-            completion(result)
+            // Executes completion handler on main thread (default on background thread)
+            OperationQueue.main.addOperation {
+                completion(result)
+            }
         }
         task.resume()
     }
