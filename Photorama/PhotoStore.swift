@@ -6,7 +6,20 @@
 //  Copyright © 2017 Mimi Chenyao. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+/// ImageResult represents result of downloading image
+
+enum ImageResult {
+    case success(UIImage)
+    case failure(Error)
+}
+
+/// PhotoError represents photo errors
+
+enum PhotoError: Error {
+    case imageCreationError
+}
 
 /// PhotosResult represents state of JSON data from server
 /// Success: Photo array, Failure: Error
@@ -54,5 +67,36 @@ class PhotoStore {
             return .failure(error!)
         }
         return FlickrAPI.photos(fromJSON: jsonData)
+    }
+    
+    // Downloads image data
+    func fetchImage(for photo: Photo, completion: @escaping (ImageResult) -> Void) {
+        let photoURL = photo.remoteURL
+        let request = URLRequest(url: photoURL)
+        
+        let task = session.dataTask(with: request) {
+            (data, response, error) -> Void in
+            
+            let result = self.processImageRequest(data: data, error: error)
+            
+            completion(result)
+        }
+        task.resume()
+    }
+    
+    // Processes data from web service request into image data, if possible
+    private func processImageRequest(data: Data?, error: Error?) -> ImageResult {
+        guard
+            let imageData = data,
+            let image = UIImage(data: imageData) else {
+                
+                // Couldn't create an image
+                if data == nil {
+                    return .failure(error!)
+                } else {
+                    return .failure(PhotoError.imageCreationError)
+                }
+        }
+        return .success(image)
     }
 }
